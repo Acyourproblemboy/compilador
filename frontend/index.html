@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compilador </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Compilador Web</h1>
+        <p>Visualización secuencial de las fases de Análisis y Síntesis</p>
+    </header>
+
+    <main class="contenedor">
+        <!-- SECCIÓN DE ENTRADA DE CÓDIGO -->
+        <section class="panel-entrada">
+            <div class="barra-superior">
+                <label for="codigo-fuente"><strong>Código Fuente </strong></label>
+                <div class="botones-ejemplo">
+                    <button type="button" class="btn-sec" onclick="cargarEjemplo('valido')">Ejemplo Válido</button>
+                    <button type="button" class="btn-sec" onclick="cargarEjemplo('optimizable')">Ejemplo Optimizable</button>
+                    <button type="button" class="btn-sec" onclick="cargarEjemplo('error')">Ejemplo con Error</button>
+                </div>
+            </div>
+            
+            <textarea id="codigo-fuente" rows="5" placeholder="Escribe tu código aquí... Ej:&#10;a = 10;&#10;b = a + 5 * 2;">a = 10;
+b = a + 5 * 2;</textarea>
+            
+            <button id="btn-compilar" onclick="ejecutarCompilacion()">▶ Compilar Código</button>
+        </section>
+
+        <!-- BANNER DE ESTADO / ERROR GLOBAL -->
+        <div id="banner-estado" class="banner oculto"></div>
+
+        <!-- SECCIÓN DE RESULTADOS: 6 FASES -->
+        <h2 class="titulo-grupo">1. Fases de Análisis</h2>
+        <div class="grid-fases">
+            <article class="tarjeta-fase" id="card-lexico">
+                <div class="encabezado-fase">
+                    <h3>Fase 1: Análisis Léxico</h3>
+                    <span class="badge" id="badge-lexico">En espera</span>
+                </div>
+                <div class="contenido-fase" id="res-lexico">Esperando ejecución...</div>
+            </article>
+
+            <article class="tarjeta-fase" id="card-sintactico">
+                <div class="encabezado-fase">
+                    <h3>Fase 2: Análisis Sintáctico</h3>
+                    <span class="badge" id="badge-sintactico">En espera</span>
+                </div>
+                <div class="contenido-fase" id="res-sintactico">Esperando ejecución...</div>
+            </article>
+
+            <article class="tarjeta-fase" id="card-semantico">
+                <div class="encabezado-fase">
+                    <h3>Fase 3: Análisis Semántico</h3>
+                    <span class="badge" id="badge-semantico">En espera</span>
+                </div>
+                <div class="contenido-fase" id="res-semantico">Esperando ejecución...</div>
+            </article>
+        </div>
+
+        <h2 class="titulo-grupo">2. Fases de Síntesis</h2>
+        <div class="grid-fases">
+            <article class="tarjeta-fase" id="card-intermedio">
+                <div class="encabezado-fase">
+                    <h3>Fase 4: Código Intermedio (TAC)</h3>
+                    <span class="badge" id="badge-intermedio">En espera</span>
+                </div>
+                <div class="contenido-fase" id="res-intermedio">Esperando ejecución...</div>
+            </article>
+
+            <article class="tarjeta-fase" id="card-optimizacion">
+                <div class="encabezado-fase">
+                    <h3>Fase 5: Optimización de Código</h3>
+                    <span class="badge" id="badge-optimizacion">En espera</span>
+                </div>
+                <div class="contenido-fase" id="res-optimizacion">Esperando ejecución...</div>
+            </article>
+
+            <article class="tarjeta-fase" id="card-destino">
+                <div class="encabezado-fase">
+                    <h3>Fase 6: Código Destino (ASM)</h3>
+                    <span class="badge" id="badge-destino">En espera</span>
+                </div>
+                <div class="contenido-fase" id="res-destino">Esperando ejecución...</div>
+            </article>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
